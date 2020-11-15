@@ -64,7 +64,12 @@ const App = (props) => {
       .then((data) => {
         console.log('mount');
         const dataFromLstorage = getDataFromLstorage();
-        setTodos([...dataFromLstorage, ...data.splice(0, 20)]);
+        if (dataFromLstorage.length > 0) {
+          console.log('log');
+          setTodos([...dataFromLstorage]);
+        } else {
+          setTodos([...data.splice(0, 20)]);
+        }
       });
   }, []);
 
