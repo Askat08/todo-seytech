@@ -20,12 +20,16 @@ const TodoList = (props) => {
 
   // loading spinner
   const loading = (
-    <div class='lds-ellipsis'>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <tr>
+      <td>
+        <div className='lds-ellipsis'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </td>
+    </tr>
   );
 
   return (

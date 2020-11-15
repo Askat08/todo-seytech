@@ -37,6 +37,22 @@ function isExist(arr, input) {
 
   return false;
 }
+
+function getDataFromLstorage() {
+  const data = JSON.parse(localStorage.getItem('newTodo'));
+  return data ? data : [];
+}
+
+function modifyLocalStorage(id) {
+  const dataFromLstorage = getDataFromLstorage();
+  dataFromLstorage.forEach((item) => {
+    if (item.id === id) {
+      item.completed = !item.completed;
+    }
+  });
+  localStorage.setItem('newTodo', JSON.stringify(dataFromLstorage));
+}
+
 const App = (props) => {
   const [todos, setTodos] = useState([]);
   const [uniqId, setUniqId] = useState(21);
@@ -47,7 +63,8 @@ const App = (props) => {
       .then((res) => res.json())
       .then((data) => {
         console.log('mount');
-        setTodos([...data.splice(0, 20)]);
+        const dataFromLstorage = getDataFromLstorage();
+        setTodos([...dataFromLstorage, ...data.splice(0, 20)]);
       });
   }, []);
 
@@ -67,6 +84,11 @@ const App = (props) => {
           completed: false,
         },
       ];
+      const dataFromLstorage = getDataFromLstorage();
+      localStorage.setItem(
+        'newTodo',
+        JSON.stringify([...newTodo, ...dataFromLstorage])
+      );
       setUniqId(uniqId + 1);
       setTodos([...newTodo, ...todos]);
       setInput('');
@@ -84,12 +106,19 @@ const App = (props) => {
         item.completed = !item.completed;
       }
     });
+    modifyLocalStorage(id);
     setTodos([...todos]);
   };
 
   const onDelete = (id) => {
     console.log('deleted');
     const newTodos = todos.filter((item) => item.id !== Number(id));
+
+    const dataFromLstorage = getDataFromLstorage();
+    const newTodosForLocalS = dataFromLstorage.filter(
+      (item) => item.id !== Number(id)
+    );
+    localStorage.setItem('newTodo', JSON.stringify(newTodosForLocalS));
     setTodos([...newTodos]);
   };
 
@@ -99,11 +128,17 @@ const App = (props) => {
         item.title = value;
       }
     });
+    const dataFromLstorage = getDataFromLstorage();
+    dataFromLstorage.forEach((item) => {
+      if (item.id === Number(id)) {
+        item.title = value;
+      }
+    });
+    localStorage.setItem('newTodo', JSON.stringify(dataFromLstorage));
     setTodos([...todos]);
   };
 
   return (
-    // <Router history={history}>
     <div className='container'>
       <Switch>
         <Route
@@ -136,7 +171,6 @@ const App = (props) => {
         />
       </Switch>
     </div>
-    // </Router>
   );
 };
 
