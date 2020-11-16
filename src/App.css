@@ -32,6 +32,7 @@ body {
   top: 52px;
   width: 57.7vw;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 
 .nav-bar .input-div {
@@ -143,9 +144,12 @@ body {
   /* body {
     background-image: url('https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   } */
+  .container {
+    width: 100vw;
+  }
 
   .nav-bar {
-    width: 53.5%;
+    width: 90%;
   }
 
   .nav-bar input {
