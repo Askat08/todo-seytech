@@ -81,20 +81,23 @@ const App = (props) => {
 
   // event handlers
   const addTodo = () => {
+    const newId = todos.length + 1;
+
     if (!isExist(todos, input)) {
       const newTodo = [
         {
-          id: uniqId,
+          id: newId,
           title: input,
           completed: false,
         },
       ];
+
       const dataFromLstorage = getDataFromLstorage();
       localStorage.setItem(
         'newTodo',
         JSON.stringify([...newTodo, ...dataFromLstorage])
       );
-      setUniqId(uniqId + 1);
+      // setUniqId(newId + 1);
       setTodos([...newTodo, ...todos]);
       setInput('');
     }

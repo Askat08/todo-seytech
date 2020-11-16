@@ -6,6 +6,7 @@ import { DebounceInput } from 'react-debounce-input';
 const TodoList = (props) => {
   const { todos, onEdit, addTodo, input, setInput, onDone, onDelete } = props;
   const [active, setActive] = useState(false);
+  console.log(todos);
 
   let countTodo = 0;
   // let history = useHistory();
@@ -56,7 +57,7 @@ const TodoList = (props) => {
           </Button>
         </div>
       </div>
-      <Table responsive hover dark>
+      <Table responsive hover dark className='table'>
         <thead>
           <tr>
             <th>#</th>
