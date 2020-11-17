@@ -41,7 +41,7 @@ const TodoList = (props) => {
             onChange={(e) => setInput(e.target.value)}
           />
           <Button color='info' onClick={addTodo}>
-            Add todo
+            Add Todo
           </Button>
         </div>
         <div className='btn-div'>
@@ -76,17 +76,17 @@ const TodoList = (props) => {
                       <td>
                         <div className='action-btn'>
                           <Button color='info' onClick={() => onEdit(todo.id)}>
-                            Edit
+                            edit
                           </Button>
                           <Button
                             color='warning'
                             onClick={() => onDone(todo.id)}>
-                            Done
+                            {active ? 'undo' : 'done'}
                           </Button>
                           <Button
                             color='danger'
                             onClick={() => onDelete(todo.id)}>
-                            Delete
+                            delete
                           </Button>
                         </div>
                       </td>
