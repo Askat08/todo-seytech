@@ -4,23 +4,23 @@ import TodoList from './components/TodoList';
 import TodoEdit from './components/TodoEdit';
 
 import './App.css';
-const todoData = [
-  {
-    id: 1,
-    title: 'test',
-    completed: false,
-  },
-  {
-    id: 2,
-    title: 'test2',
-    completed: false,
-  },
-  {
-    id: 3,
-    title: 'test3',
-    completed: true,
-  },
-];
+// const todoData = [
+//   {
+//     id: 1,
+//     title: 'test',
+//     completed: false,
+//   },
+//   {
+//     id: 2,
+//     title: 'test2',
+//     completed: false,
+//   },
+//   {
+//     id: 3,
+//     title: 'test3',
+//     completed: true,
+//   },
+// ];
 // helper function
 function isExist(arr, input) {
   if (input === '') {
@@ -55,7 +55,6 @@ function modifyLocalStorage(id) {
 
 const App = (props) => {
   const [todos, setTodos] = useState([]);
-  const [uniqId, setUniqId] = useState(21);
   const [input, setInput] = useState('');
 
   useEffect(() => {
@@ -74,11 +73,6 @@ const App = (props) => {
   }, []);
 
   let history = useHistory();
-
-  const redirect = (id) => {
-    history.push(`edit/${id}`);
-  };
-
   // event handlers
   const addTodo = () => {
     const newId = todos.length + 1;
@@ -105,7 +99,7 @@ const App = (props) => {
   };
 
   const onEdit = (id) => {
-    redirect(id);
+    history.push(`edit/${id}`);
   };
 
   const onDone = (id) => {

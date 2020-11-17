@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { Table, Button, Badge } from 'reactstrap';
 import { DebounceInput } from 'react-debounce-input';
-// import { useHistory } from 'react-router-dom';
 
 const TodoList = (props) => {
   const { todos, onEdit, addTodo, input, setInput, onDone, onDelete } = props;
   const [active, setActive] = useState(false);
-  console.log(todos);
 
   let countTodo = 0;
-  // let history = useHistory();
-
   const activeTasks = todos.filter((task) => {
     return !task.completed;
   });

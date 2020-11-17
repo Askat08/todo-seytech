@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 body {
-  background-image: url('https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  /* background-position: top 50%; */
+  background-image: url('https://images.pexels.com/photos/3745234/pexels-photo-3745234.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   overflow: hidden;
+}
+
+.btn {
+  text-align: center;
+  padding: 2px;
 }
 
 .btn:focus,
@@ -19,7 +24,7 @@ body {
   width: 60vw;
   margin: 50px auto 0 auto;
   overflow-y: scroll;
-  /* position: relative; */
+  position: relative;
 }
 
 .nav-bar {
@@ -28,9 +33,10 @@ body {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 52px;
-  width: 57.7vw;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
 }
@@ -39,7 +45,6 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  /* border: 1px solid; */
 }
 
 .nav-bar .input-div input {
@@ -47,21 +52,15 @@ body {
   padding: 10px;
   outline: none;
 }
+.nav-bar .btn {
+  width: 30%;
+}
 
 .nav-bar .btn-div {
   width: 70%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  /* border: 1px solid; */
-}
-
-.table {
-  margin-top: 130px;
-}
-
-.todolist {
-  overflow: scroll;
 }
 
 .action-btn {
@@ -74,6 +73,23 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+.edit-todo .action-btn {
+  justify-content: space-between;
+}
+
+.edit-todo input {
+  padding: 10px;
+  outline: none;
+}
+
+.table {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.table .btn {
+  padding: 2px 10px;
 }
 
 .done {
@@ -141,15 +157,8 @@ body {
 }
 
 @media only screen and (max-width: 760px) {
-  /* body {
-    background-image: url('https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  } */
   .container {
     width: 100vw;
-  }
-
-  .nav-bar {
-    width: 90%;
   }
 
   .nav-bar input {
@@ -166,7 +175,7 @@ body {
     width: 100%;
   }
 
-  .action-btn {
+  Table .action-btn {
     flex-direction: column;
     gap: 5px;
   }
