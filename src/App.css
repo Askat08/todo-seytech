@@ -181,14 +181,18 @@ body {
     width: 100%;
   }
 
-  Table .action-btn {
+  .table .action-btn {
     flex-direction: column;
     gap: 5px;
   }
 
-  .action-btn .btn {
+  .todolist .action-btn .btn {
     width: 50px;
     height: 30px;
     font-size: 10px;
+  }
+
+  .edit-todo .btn {
+    padding: 5px 10px !important;
   }
 }
